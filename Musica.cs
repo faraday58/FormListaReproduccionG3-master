@@ -8,6 +8,7 @@ namespace FormListaReproduccionG3
         private string cancion;
         private string artista;
         private string album;
+        private int duracion;
         #endregion
 
         #region Constructor
@@ -66,6 +67,8 @@ namespace FormListaReproduccionG3
             }
                 
         }
+
+        public int Duracion { get => duracion; set => duracion = value; }
 
         #endregion
     }

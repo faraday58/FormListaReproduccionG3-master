@@ -10,6 +10,7 @@ namespace FormListaReproduccionG3
         private Musica musica;
         private ArrayList canciones;
         Form formPadre;
+        private int contador;
         #endregion
         public FormRepro(Form formPadre)
         {
@@ -69,6 +70,30 @@ namespace FormListaReproduccionG3
         {
             listReproduccion.Items.Add(musica.Cancion);
             canciones.Add(musica);
+        }
+
+        private void timerCancion_Tick(object sender, EventArgs e)
+        {
+            if(contador <= 100  )
+            {
+                
+                pbrTiempoTrans.Value = contador;
+                contador += 20;
+                int segundos = contador / 20;
+                lbTiempoTrans.Text = segundos.ToString() +" [s]";
+            }
+            else
+            {
+                contador = 0;
+                pbrTiempoTrans.Value = 0;
+                timerCancion.Stop();
+            }
+
+        }
+
+        private void playToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            timerCancion.Start();
         }
     }
 }
