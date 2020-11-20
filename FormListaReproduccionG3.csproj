@@ -34,10 +34,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgregar.Designer.cs">
+      <DependentUpon>FormAgregar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRepro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -47,6 +55,9 @@
     <Compile Include="Musica.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAgregar.resx">
+      <DependentUpon>FormAgregar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRepro.resx">
       <DependentUpon>FormRepro.cs</DependentUpon>
     </EmbeddedResource>

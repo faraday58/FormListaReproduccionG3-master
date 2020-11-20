@@ -1,7 +1,7 @@
 ﻿
 namespace FormListaReproduccionG3
 {
-    class Musica
+    public class Musica
     {
 
         #region atributos

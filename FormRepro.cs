@@ -20,6 +20,7 @@ namespace FormListaReproduccionG3
             listReproduccion.Items.Add(musica.Cancion);
             canciones = new ArrayList();
             canciones.Add(musica);
+            ListaCanciones();
         }
         private void ListaCanciones()
         {
@@ -32,31 +33,20 @@ namespace FormListaReproduccionG3
 
         private void listReproduccion_SelectedIndexChanged(object sender, EventArgs e)
         {
+            musica = (Musica)canciones[listReproduccion.SelectedIndex];
+
             lbAlbum.Text = musica.Album;
             lbArtista.Text = musica.Artista;
-            lbCancion.Text = musica.Cancion;
-            try
-            {
-                musica = (Musica)canciones[listReproduccion.SelectedIndex];
-            }
-            catch(ArgumentOutOfRangeException )
-            {
-
-            }
-            
-            
-
-            
+            lbCancion.Text = musica.Cancion;                              
         }
 
         private void cargarCancionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ListaCanciones();
+            listReproduccion.Items.Clear();            
             foreach (Musica musica in canciones  )
             {
                 listReproduccion.Items.Add(musica.Cancion);
             }
-
         }
         /// <summary>
         /// Evento para cerrar el FormRepro y volver a mostrar al formulario registro.
@@ -66,6 +56,19 @@ namespace FormListaReproduccionG3
         private void FormRepro_FormClosed(object sender, FormClosedEventArgs e)
         {
             formPadre.Show();
+        }
+
+        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAgregar formAgregar = new FormAgregar();
+            formAgregar.EnviarMusica += FormAgregar_RecibirMusica;
+            formAgregar.ShowDialog();
+        }
+
+        private void FormAgregar_RecibirMusica(Musica musica)
+        {
+            listReproduccion.Items.Add(musica.Cancion);
+            canciones.Add(musica);
         }
     }
 }

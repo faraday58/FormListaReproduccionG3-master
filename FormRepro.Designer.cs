@@ -140,7 +140,7 @@
             // cargarCancionesToolStripMenuItem
             // 
             this.cargarCancionesToolStripMenuItem.Name = "cargarCancionesToolStripMenuItem";
-            this.cargarCancionesToolStripMenuItem.Size = new System.Drawing.Size(248, 34);
+            this.cargarCancionesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.cargarCancionesToolStripMenuItem.Text = "Cargar canciones";
             this.cargarCancionesToolStripMenuItem.Click += new System.EventHandler(this.cargarCancionesToolStripMenuItem_Click);
             // 
@@ -149,6 +149,7 @@
             this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
             this.agregarToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.agregarToolStripMenuItem.Text = "Agregar";
+            this.agregarToolStripMenuItem.Click += new System.EventHandler(this.agregarToolStripMenuItem_Click);
             // 
             // FormRepro
             // 
