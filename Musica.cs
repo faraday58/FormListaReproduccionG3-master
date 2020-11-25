@@ -1,4 +1,4 @@
-﻿
+﻿using System;
 namespace FormListaReproduccionG3
 {
     public class Musica
@@ -68,7 +68,18 @@ namespace FormListaReproduccionG3
                 
         }
 
-        public int Duracion { get => duracion; set => duracion = value; }
+        public int Duracion {
+            get
+            {
+                Random aleatorio = new Random();
+                duracion = aleatorio.Next(4,11);
+                return  duracion;
+            }
+            set
+            {
+                duracion = value;
+            }
+        }
 
         #endregion
     }
