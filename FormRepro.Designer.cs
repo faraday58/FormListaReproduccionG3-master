@@ -139,7 +139,7 @@
             this.reproduccionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1156, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(1156, 33);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -193,18 +193,21 @@
             this.pausarToolStripMenuItem.Name = "pausarToolStripMenuItem";
             this.pausarToolStripMenuItem.Size = new System.Drawing.Size(319, 34);
             this.pausarToolStripMenuItem.Text = "Pausar";
+            this.pausarToolStripMenuItem.Click += new System.EventHandler(this.pausarToolStripMenuItem_Click);
             // 
             // siguienteToolStripMenuItem
             // 
             this.siguienteToolStripMenuItem.Name = "siguienteToolStripMenuItem";
             this.siguienteToolStripMenuItem.Size = new System.Drawing.Size(319, 34);
             this.siguienteToolStripMenuItem.Text = "Siguiente";
+            this.siguienteToolStripMenuItem.Click += new System.EventHandler(this.siguienteToolStripMenuItem_Click);
             // 
             // anteriorToolStripMenuItem
             // 
             this.anteriorToolStripMenuItem.Name = "anteriorToolStripMenuItem";
             this.anteriorToolStripMenuItem.Size = new System.Drawing.Size(319, 34);
             this.anteriorToolStripMenuItem.Text = "Anterior";
+            this.anteriorToolStripMenuItem.Click += new System.EventHandler(this.anteriorToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 

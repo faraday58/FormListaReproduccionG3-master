@@ -106,5 +106,61 @@ namespace FormListaReproduccionG3
             }
             
         }
+
+        private void siguienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(!timerCancion.Enabled)
+            {
+                timerCancion.Start();
+            }
+            if( listReproduccion.SelectedIndex < listReproduccion.Items.Count-1  )
+            {
+                listReproduccion.SelectedIndex += 1;
+                musica = (Musica)canciones[listReproduccion.SelectedIndex];                
+                contador = 0;
+            }
+            else
+            {
+                listReproduccion.SelectedIndex = 0;
+                musica = (Musica)canciones[0];                
+                contador = 0;
+            }
+            lbAlbum.Text = musica.Album;
+            lbArtista.Text = musica.Artista;
+            lbCancion.Text = musica.Cancion;
+            duracion = musica.Duracion;
+            lbTiempoDuracion.Text = duracion.ToString() + "[s]";
+        }
+
+        private void pausarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            timerCancion.Stop();
+        }
+
+        private void anteriorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!timerCancion.Enabled)
+            {
+                timerCancion.Start();
+            }
+            if (listReproduccion.SelectedIndex > 1)
+            {
+                listReproduccion.SelectedIndex -= 1;
+                musica = (Musica)canciones[listReproduccion.SelectedIndex];
+                
+            }
+            else
+            {
+                listReproduccion.SelectedIndex = listReproduccion.Items.Count-1;
+                musica = (Musica)canciones[listReproduccion.SelectedIndex];
+                
+            }
+            contador = 0;
+            lbAlbum.Text = musica.Album;
+            lbArtista.Text = musica.Artista;
+            lbCancion.Text = musica.Cancion;
+            duracion = musica.Duracion;
+            lbTiempoDuracion.Text = duracion.ToString() + "[s]";
+        }
     }
 }
