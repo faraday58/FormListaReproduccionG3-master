@@ -54,7 +54,9 @@
             this.pbrTiempoTrans = new System.Windows.Forms.ProgressBar();
             this.lbTiempoTrans = new System.Windows.Forms.Label();
             this.lbTiempoDuracion = new System.Windows.Forms.Label();
+            this.ptbAlbumArtista = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAlbumArtista)).BeginInit();
             this.SuspendLayout();
             // 
             // listReproduccion
@@ -240,7 +242,7 @@
             // 
             // pbrTiempoTrans
             // 
-            this.pbrTiempoTrans.Location = new System.Drawing.Point(423, 276);
+            this.pbrTiempoTrans.Location = new System.Drawing.Point(423, 340);
             this.pbrTiempoTrans.Name = "pbrTiempoTrans";
             this.pbrTiempoTrans.Size = new System.Drawing.Size(552, 13);
             this.pbrTiempoTrans.TabIndex = 3;
@@ -248,7 +250,7 @@
             // lbTiempoTrans
             // 
             this.lbTiempoTrans.AutoSize = true;
-            this.lbTiempoTrans.Location = new System.Drawing.Point(380, 276);
+            this.lbTiempoTrans.Location = new System.Drawing.Point(380, 333);
             this.lbTiempoTrans.Name = "lbTiempoTrans";
             this.lbTiempoTrans.Size = new System.Drawing.Size(18, 20);
             this.lbTiempoTrans.TabIndex = 1;
@@ -257,17 +259,28 @@
             // lbTiempoDuracion
             // 
             this.lbTiempoDuracion.AutoSize = true;
-            this.lbTiempoDuracion.Location = new System.Drawing.Point(999, 269);
+            this.lbTiempoDuracion.Location = new System.Drawing.Point(996, 333);
             this.lbTiempoDuracion.Name = "lbTiempoDuracion";
             this.lbTiempoDuracion.Size = new System.Drawing.Size(73, 20);
             this.lbTiempoDuracion.TabIndex = 1;
             this.lbTiempoDuracion.Text = "Duración";
+            // 
+            // ptbAlbumArtista
+            // 
+            this.ptbAlbumArtista.Image = global::FormListaReproduccionG3.Properties.Resources.gorillaz2;
+            this.ptbAlbumArtista.Location = new System.Drawing.Point(730, 48);
+            this.ptbAlbumArtista.Name = "ptbAlbumArtista";
+            this.ptbAlbumArtista.Size = new System.Drawing.Size(245, 245);
+            this.ptbAlbumArtista.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbAlbumArtista.TabIndex = 4;
+            this.ptbAlbumArtista.TabStop = false;
             // 
             // FormRepro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1156, 497);
+            this.Controls.Add(this.ptbAlbumArtista);
             this.Controls.Add(this.pbrTiempoTrans);
             this.Controls.Add(this.lbAlbum);
             this.Controls.Add(this.lbTiempoDuracion);
@@ -286,6 +299,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormRepro_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAlbumArtista)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,6 +332,7 @@
         private System.Windows.Forms.ProgressBar pbrTiempoTrans;
         private System.Windows.Forms.Label lbTiempoTrans;
         private System.Windows.Forms.Label lbTiempoDuracion;
+        private System.Windows.Forms.PictureBox ptbAlbumArtista;
     }
 }
 
