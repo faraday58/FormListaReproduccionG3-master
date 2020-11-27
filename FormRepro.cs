@@ -12,7 +12,7 @@ namespace FormListaReproduccionG3
         Form formPadre;
         private int contador;
         private int duracion;
-        private bool Automatica;
+  //      private bool Automatica;
         int contadorCanciones;
         #endregion
         public FormRepro(Form formPadre)
@@ -25,7 +25,8 @@ namespace FormListaReproduccionG3
             canciones = new ArrayList();
             canciones.Add(musica);
             ListaCanciones();
-            Automatica = false;
+            // Automatica = false;
+            //reproducciónAutomáticaToolStripMenuItem.Checked = false;
         }
         private void ListaCanciones()
         {
@@ -93,10 +94,10 @@ namespace FormListaReproduccionG3
             {
                 contador = 0;
                 pbrTiempoTrans.Value = 0;
-                if( !Automatica   || contadorCanciones ==0 )
+                if( !reproducciónAutomáticaToolStripMenuItem.Checked   || contadorCanciones ==0 )
                 {
                     timerCancion.Stop();
-                    Automatica = false;
+                    reproducciónAutomáticaToolStripMenuItem.Checked = false;
                     contadorCanciones = listReproduccion.Items.Count;
                 }
                 contadorCanciones -= 1;
@@ -182,10 +183,11 @@ namespace FormListaReproduccionG3
             duracion = musica.Duracion;
             lbTiempoDuracion.Text = duracion.ToString() + "[s]";
         }
-
+/*
         private void reproducciónAutomáticaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Automatica = true;
         }
+*/
     }
 }
