@@ -216,9 +216,12 @@
             // 
             // reproducciónAutomáticaToolStripMenuItem
             // 
+            this.reproducciónAutomáticaToolStripMenuItem.Checked = true;
+            this.reproducciónAutomáticaToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.reproducciónAutomáticaToolStripMenuItem.Name = "reproducciónAutomáticaToolStripMenuItem";
             this.reproducciónAutomáticaToolStripMenuItem.Size = new System.Drawing.Size(319, 34);
             this.reproducciónAutomáticaToolStripMenuItem.Text = "Reproducción Automática";
+            this.reproducciónAutomáticaToolStripMenuItem.Click += new System.EventHandler(this.reproducciónAutomáticaToolStripMenuItem_Click);
             // 
             // bucleToolStripMenuItem
             // 

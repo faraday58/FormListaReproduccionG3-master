@@ -12,22 +12,25 @@ namespace FormListaReproduccionG3
         Form formPadre;
         private int contador;
         private int duracion;
+        private bool Automatica;
+        int contadorCanciones;
         #endregion
         public FormRepro(Form formPadre)
         {
             this.formPadre = formPadre;
 
             InitializeComponent();
-            musica= new Musica("","","");
+            musica = new Musica("", "", "");
             listReproduccion.Items.Add(musica.Cancion);
             canciones = new ArrayList();
             canciones.Add(musica);
             ListaCanciones();
+            Automatica = false;
         }
         private void ListaCanciones()
         {
-            canciones.Add(new Musica("Hit me","Molotov", " Dance and dense denso"));
-            canciones.Add(new Musica("La parte de adelante ","Los Fabulosos Cadillac"," Lo esencial de los Fabulosos Cadillac"));
+            canciones.Add(new Musica("Hit me", "Molotov", " Dance and dense denso"));
+            canciones.Add(new Musica("La parte de adelante ", "Los Fabulosos Cadillac", " Lo esencial de los Fabulosos Cadillac"));
             canciones.Add(new Musica("Monsters ", "Starset ", "Vessels"));
             canciones.Add(new Musica("Funky town", "Lipps Inc", "Club Classics"));
             canciones.Add(new Musica("Ramito de violetas", "Mi Banda El Mexicano", "Grupo el mexicano"));
@@ -39,16 +42,17 @@ namespace FormListaReproduccionG3
 
             lbAlbum.Text = musica.Album;
             lbArtista.Text = musica.Artista;
-            lbCancion.Text = musica.Cancion;                              
+            lbCancion.Text = musica.Cancion;
         }
 
         private void cargarCancionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listReproduccion.Items.Clear();            
-            foreach (Musica musica in canciones  )
+            listReproduccion.Items.Clear();
+            foreach (Musica musica in canciones)
             {
                 listReproduccion.Items.Add(musica.Cancion);
             }
+            contadorCanciones = listReproduccion.Items.Count;
         }
         /// <summary>
         /// Evento para cerrar el FormRepro y volver a mostrar al formulario registro.
@@ -73,27 +77,43 @@ namespace FormListaReproduccionG3
             canciones.Add(musica);
         }
 
-        private void timerCancion_Tick(object sender, EventArgs e)
-        {
+   
 
-                       
+        private void timerCancion_Tick(object sender, EventArgs e)
+        {                        
+           
             if(contador < 100 )
             {
                 pbrTiempoTrans.Value = contador;
                 contador += 100 / duracion;
                 float segundos = contador * duracion / 100;
-                lbTiempoTrans.Text = segundos.ToString() + " [s]";                        
-                
+                lbTiempoTrans.Text = segundos.ToString() + " [s]";                                        
             }
             else
             {
                 contador = 0;
                 pbrTiempoTrans.Value = 0;
-                timerCancion.Stop();
+                if( !Automatica   || contadorCanciones ==0 )
+                {
+                    timerCancion.Stop();
+                    Automatica = false;
+                    contadorCanciones = listReproduccion.Items.Count;
+                }
+                contadorCanciones -= 1;
+                if (listReproduccion.SelectedIndex < listReproduccion.Items.Count-1)
+                {
+                    listReproduccion.SelectedIndex += 1;
+                }
+                else
+                {
+                    listReproduccion.SelectedIndex = 0;
+                }                    
+                    
             }
+           
 
         }
-
+   
         private void playToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(listReproduccion.SelectedIndex  != -1)
@@ -161,6 +181,11 @@ namespace FormListaReproduccionG3
             lbCancion.Text = musica.Cancion;
             duracion = musica.Duracion;
             lbTiempoDuracion.Text = duracion.ToString() + "[s]";
+        }
+
+        private void reproducciónAutomáticaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Automatica = true;
         }
     }
 }
